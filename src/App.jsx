@@ -1,117 +1,116 @@
 import { useState, useRef, useCallback } from "react";
 
 const initialData = {
-  name: "Maximiliano Céspedes",
-  title: "Senior Product Engineer (Frontend)",
-  location: "Rijswijk, The Netherlands",
-  summary:
-    "I am a Frontend-focused Software Engineer with 10+ years of experience building and scaling high-impact web platforms across cloud storage, fintech, and e-commerce. I specialize in architecting large-scale frontend systems using technologies like Next.js, React, Cloudflare Workers, and Kubernetes. My work spans performance engineering, observability, design systems, and major application migrations. I'm looking for Senior/Staff Product Engineer role with focus on Frontend.",
-  experience: [
+  "name": "Maximiliano Céspedes",
+  "title": "Senior Product Engineer (Frontend)",
+  "location": "Rijswijk, The Netherlands",
+  "summary": "I am a Frontend Software Engineer with 12+ years of experience building and scaling high-impact web platforms across cloud storage, fintech, and e-commerce. I specialize in architecting large-scale frontend systems using technologies like Next.js, React, Cloudflare Workers, and Kubernetes. My work spans performance engineering, observability, design systems, and major application migrations. I'm looking for Senior/Staff Product Engineer role with focus on Frontend. ",
+  "experience": [
     {
-      id: 0,
-      company: "Stepcraft",
-      role: "Co-Founder",
-      startDate: "08/2025",
-      endDate: "Present",
-      location: "The Netherlands",
-      bullets: [
-        "Co-founded Stepcraft, an step-based RPG mobile game. Built in React Native, Supabase, and Vercel. Working on the frontend, helping with game design and supporting the community.",
-      ],
+      "id": 0,
+      "company": "Stepcraft",
+      "role": "Co-Founder",
+      "startDate": "08/2025",
+      "endDate": "Present",
+      "location": "The Netherlands",
+      "bullets": [
+        "Co-founded Stepcraft, an step-based RPG mobile game. Built in React Native, Supabase, and Vercel. Working on the frontend, helping with game design and supporting the community."
+      ]
     },
     {
-      id: 1,
-      company: "Creative Fabrica",
-      role: "Senior Frontend Engineer",
-      startDate: "02/2025",
-      endDate: "02/2026",
-      location: "The Netherlands",
-      bullets: [
+      "id": 1,
+      "company": "Creative Fabrica",
+      "role": "Senior Frontend Engineer",
+      "startDate": "02/2025",
+      "endDate": "02/2026",
+      "location": "The Netherlands",
+      "bullets": [
         "Led the migration of the My Accounts application from WordPress to Next.js, using Cloudflare Workers, A/B testing, and performance monitoring to ensure stable business and engagement metrics.",
         "Led the Design System team for the Marketplace; established live documentation, versioned component packages, governance processes, and adoption metrics. Migrated the top 10 core components and the full design token system, improving consistency and development speed across teams.",
         "Implemented Prometheus metrics and Grafana dashboards for our self-hosted Next.js cluster. Introduced frontend success and latency metrics, SLOs, and automated alerting to enhance reliability and observability.",
-        "Optimized Kubernetes cluster costs, reducing annual compute expenses by more than 4x. Built multi-platform Docker images, migrated workloads from AMD64 to ARM64, improved autoscaling rules, and reduced pod resource consumption through optimized caching strategies.",
-      ],
+        "Optimized Kubernetes cluster costs, reducing annual compute expenses by more than 4x. Built multi-platform Docker images, migrated workloads from AMD64 to ARM64, improved autoscaling rules, and reduced pod resource consumption through optimized caching strategies."
+      ]
     },
     {
-      id: 2,
-      company: "WeTransfer",
-      role: "Senior Frontend Engineer II",
-      startDate: "10/2021",
-      endDate: "02/2025",
-      location: "The Netherlands",
-      bullets: [
+      "id": 2,
+      "company": "WeTransfer",
+      "role": "Senior Frontend Engineer II",
+      "startDate": "10/2021",
+      "endDate": "02/2025",
+      "location": "The Netherlands",
+      "bullets": [
         "Contributed to scaling and optimizing the upload user journey, helping maintain a seamless and reliable experience for over 90 million monthly users.",
         "Designed and executed the migration of the wetransfer.com single-page application, previously served by the Ruby monolith, into the Next.js stack with whole-site delivery.",
         "Introduced observability tooling and monitoring to the frontend stack and defined SLIs and SLOs for wetransfer.com in coordination with the SRE team. Improved MTTD from 2 hours to 11 mins in core-user journeys.",
         "Planned, implemented, and rolled out a new uploader library to the Transfer app, improving upload performance by 3.5% and increasing the success rate for large files from 93.43% to 95.07%.",
         "Led the frontend effort to implement company-wide pricing and packaging changes in the Transfer application, introducing five new tiers across multiple countries.",
-        "Implemented and rolled out WeTransfer's new Workspaces feature, driving a 94.3% quarter-over-quarter increase in net seats added.",
-      ],
+        "Implemented and rolled out WeTransfer's new Workspaces feature, driving a 94.3% quarter-over-quarter increase in net seats added."
+      ]
     },
     {
-      id: 3,
-      company: "Coolblue",
-      role: "Senior Frontend Engineer",
-      startDate: "2018",
-      endDate: "2021",
-      location: "The Netherlands",
-      bullets: [
+      "id": 3,
+      "company": "Coolblue",
+      "role": "Senior Frontend Engineer",
+      "startDate": "2018",
+      "endDate": "2021",
+      "location": "The Netherlands",
+      "bullets": [
         "Developed and optimized user interfaces for the search and product pages, serving over 10 million monthly users",
         "Collaborated with cross-functional teams to enhance developer workflows, performance, and user experience",
         "Created React applications that serve hundreds of internal specialists to support multiple back-office processes and provided mentoring about our custom JS framework to 5 new frontend developers",
         "Led the web performance taskforce, introducing Datadog RUM and training teams on performance metrics, monitoring, and best practices to enhance user experience",
-        "Led E2E testing platform migration to Cypress and hosted acceptance tests training for the Internal learning platform",
-      ],
+        "Led E2E testing platform migration to Cypress and hosted acceptance tests training for the Internal learning platform"
+      ]
     },
     {
-      id: 4,
-      company: "Intive-FDV",
-      role: "Technical Lead Frontend",
-      startDate: "2017",
-      endDate: "2018",
-      location: "Argentina",
-      bullets: [
+      "id": 4,
+      "company": "Intive-FDV",
+      "role": "Technical Lead Frontend",
+      "startDate": "2017",
+      "endDate": "2018",
+      "location": "Argentina",
+      "bullets": [
         "Led the complete rebuild of a suite of 12 single-page applications from the ground up",
         "Led a team of 13 frontend developers in building 12 unique products and maintained a shared UI component library",
-        "Designed and documented comprehensive architectural guidelines to promote scalability, consistency, and best practices throughout the project",
-      ],
+        "Designed and documented comprehensive architectural guidelines to promote scalability, consistency, and best practices throughout the project"
+      ]
     },
     {
-      id: 5,
-      company: "Intive-FDV",
-      role: "Frontend Engineer",
-      startDate: "2016",
-      endDate: "2017",
-      location: "Argentina",
-      bullets: [
+      "id": 5,
+      "company": "Intive-FDV",
+      "role": "Frontend Engineer",
+      "startDate": "2016",
+      "endDate": "2017",
+      "location": "Argentina",
+      "bullets": [
         "Redesigned the core platform by overhauling the routing system, state management, and bundle process",
-        "Refactored project structure to support new scalability requirements",
-      ],
+        "Refactored project structure to support new scalability requirements"
+      ]
     },
     {
-      id: 6,
-      company: "Telectronica",
-      role: "Full Stack Developer",
-      startDate: "2014",
-      endDate: "2016",
-      location: "Argentina",
-      bullets: [
+      "id": 6,
+      "company": "Telectronica",
+      "role": "Full Stack Developer",
+      "startDate": "2014",
+      "endDate": "2016",
+      "location": "Argentina",
+      "bullets": [
         "Maintained and enhanced Silverlight/ASP.NET web applications",
-        "Provided on-site platform setup and training across Argentina, Brazil, Peru, Chile, and Uruguay",
-      ],
-    },
+        "Provided on-site platform setup and training across Argentina, Brazil, Peru, Chile, and Uruguay"
+      ]
+    }
   ],
-  education: [
+  "education": [
     {
-      id: 1,
-      institution: "Universidad Tecnologica Nacional Argentina",
-      degree: "Information Systems Engineer",
-      startDate: "2008",
-      endDate: "2014",
-      location: "Argentina",
-    },
+      "id": 1,
+      "institution": "Universidad Tecnologica Nacional Argentina",
+      "degree": "Information Systems Engineer",
+      "startDate": "2008",
+      "endDate": "2014",
+      "location": "Argentina"
+    }
   ],
-  skills: [
+  "skills": [
     "Typescript",
     "Next.JS",
     "React",
@@ -121,8 +120,11 @@ const initialData = {
     "Docker",
     "Kubernetes",
     "Web Performance",
-  ],
-};
+    "Figma MCP",
+    "Agentic Coding",
+    "AI Engineering"
+  ]
+}
 
 /* ─── themes ─── */
 const THEMES = {
