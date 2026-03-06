@@ -705,8 +705,19 @@ export default function CVEditor() {
     const w = window.open("", "_blank");
     w.document.write(`<!DOCTYPE html><html><head><title>${data.name} – CV</title>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
-      <style>@page{size:A4;margin:0}*{margin:0;padding:0;box-sizing:border-box}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}</style>
-    </head><body>${el.innerHTML}</body></html>`);
+      <style>
+        @page { size: A4; margin: 12mm; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        #print-root > div {
+          width: 100% !important;
+          max-width: none !important;
+          min-height: auto !important;
+          margin: 0 auto;
+          box-shadow: none !important;
+        }
+      </style>
+    </head><body><div id="print-root">${el.innerHTML}</div></body></html>`);
     w.document.close();
     setTimeout(() => { w.print(); w.close(); }, 400);
   }, [data.name]);
